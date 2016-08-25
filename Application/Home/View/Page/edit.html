@@ -13,13 +13,17 @@
                     <input type="text" name="page_title" id="page_title" placeholder="{$Think.Lang.input_page_title}" value="{$page.page_title}" tabindex="1">
                 </li>
                 <li>
+                    {$Think.Lang.belong_directory}：
+                    <select name="that_cat_id" id="that_cat_id" tabindex="2"></select>
+                </li>
+<!--                 <li>
                     {$Think.Lang.level_2_directory}：
                     <select name="cat_id" id="cat_id" tabindex="2"></select>
                 </li>
                 <li id="li_parent_cat">
                     {$Think.Lang.level_3_directory}：
                     <select name="parent_cat_id" id="parent_cat_id" tabindex="3"></select>
-                </li>
+                </li> -->
                 <li>
                     <input type="text" name="s_number" id="s_number" value="{$page.s_number}" placeholder="{$Think.Lang.s_number_explain}" title="{$Think.Lang.s_number_explain}"  tabindex="4" >
                 </li>
@@ -71,8 +75,9 @@
     <input type="hidden" id="item_id" value="{$item_id}">
     <input type="hidden" id="page_id" value="{$page.page_id}">
     <input type="hidden" id="page_comments" value="">
-    <input type="hidden" id="default_second_cat_id" value="{$default_second_cat_id}">
-    <input type="hidden" id="default_child_cat_id" value="{$default_child_cat_id}">
+    <input type="hidden" id="default_that_cat_id" value="{$default_that_cat_id}">
+<!--     <input type="hidden" id="default_second_cat_id" value="{$default_second_cat_id}">
+    <input type="hidden" id="default_child_cat_id" value="{$default_child_cat_id}"> -->
 </div>
 <!-- 模板存放的地方 -->
 <div id="api-doc-templ" style="display:none">

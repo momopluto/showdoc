@@ -128,6 +128,7 @@ return array(
     
     //page
     'input_page_title'=>'Please enter a page title',
+    'belong_directory'=>'Belong catalog',
     'level_2_directory'=>'Second-level catalog',
     'level_3_directory'=>'Third-level catalog',
     's_number_explain'=>'Optional: order number',

@@ -9,6 +9,39 @@ $(function() {
   if (is_showdoc_online()) {
     set_text_color( "runapi" , "red");
   };
+
+  /*加载所有目录*/
+  recCatList();
+  function recCatList() {
+    var default_that_cat_id = $("#default_that_cat_id").val();
+    var item_id = $("#item_id").val();
+    $.get(
+      "?s=home/catalog/recCatList", 
+      {"item_id": item_id},
+      function(data) {
+        $("#that_cat_id").html('<OPTION value="0">'+lang["none"]+'</OPTION>');
+        if (data.error_code == 0) {
+          json = data.data;
+          console.log(json);
+          // alert("damn it");
+          for (var j = 0; j < json.length; j++) {
+            for (var i = 0; i < json[j].length; i++) {
+              cat_html = '<OPTION value="' + json[j][i].cat_id + '" ';
+              if (default_that_cat_id == json[j][i].cat_id) {
+                cat_html += ' selected ';
+              }
+
+              cat_html += ' ">' + json[j][i].cat_name + '</OPTION>';
+              $("#that_cat_id").append(cat_html);
+            };
+          };
+        };
+
+      },
+      "json"
+
+    );
+  }
   
   /*加载目录*/
   secondCatList();
@@ -242,16 +275,17 @@ function dump(arr,level) {
     var page_content = $("#page_content").val();
     var item_id = $("#item_id").val();
     var s_number = $("#s_number").val();
-    var cat_id = $("#cat_id").val();
-    var parent_cat_id = $("#parent_cat_id").val();
-    if (parent_cat_id > 0 ) {
-      cat_id = parent_cat_id ;
-    };
+    var that_cat_id = $("#that_cat_id").val();
+    // var cat_id = $("#cat_id").val();
+    // var parent_cat_id = $("#parent_cat_id").val();
+    // if (parent_cat_id > 0 ) {
+    //   cat_id = parent_cat_id ;
+    // };
     saving = true;
     $.post(
       "?s=home/page/save", {
         "page_id": page_id,
-        "cat_id": cat_id,
+        "cat_id": that_cat_id,
         "s_number": s_number,
         "page_content": page_content,
         "page_title": page_title,

@@ -128,6 +128,7 @@ return array(
     
     //page
     'input_page_title'=>'请输入页面标题',
+    'belong_directory'=>'所属目录',
     'level_2_directory'=>'二级目录',
     'level_3_directory'=>'三级目录',
     's_number_explain'=>'可选：顺序数字',
